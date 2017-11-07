@@ -27,7 +27,7 @@ public class DayNumberChecker {
             // Splitting the date string int year, month and day. Casting the input from String to Integer.
             year = Integer.parseInt(dateInput.substring(0,4));
             month = Integer.parseInt(dateInput.substring(5,7));
-            day = Integer.parseInt(dateInput.substring(9,10));
+            day = Integer.parseInt(dateInput.substring(8,10));
             debug = Integer.parseInt(dateInput.substring(11,12));
 
             // Verifying that the input data are values that are ok. If so then return the number of the day.
@@ -55,6 +55,7 @@ public class DayNumberChecker {
         if(leapyear && month > 2){
             dayNumber++;
         }
+
         return dayNumber+day;
     }
 
@@ -63,8 +64,8 @@ public class DayNumberChecker {
         int totalDays = 0;
 
         // Sum all days from the years.
-        for(int i=0; i < (year-1754); i++){
-            if(isLeapYear(1754+i)){
+        for(int i=1754; i < year; i++){
+            if(isLeapYear(i)){
                 totalDays += 366;
             } else {
                 totalDays += 365;
